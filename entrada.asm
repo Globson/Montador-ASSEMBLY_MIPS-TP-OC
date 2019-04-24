@@ -5,3 +5,4 @@ andi $t2, $t1, 16
 addi $t3, $t2, -243
 move $s1, $s2
 lw $t0, 24($s2)
+sw $t0, 24($s2)

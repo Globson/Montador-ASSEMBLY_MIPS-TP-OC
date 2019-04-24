@@ -179,7 +179,7 @@ int main(int argc, char const *argv[]){
       printf("Operação SW chamada!\n");
       char aux[16];
       fprintf(saida, "101011");
-      fscanf(f," %s %d(%s",registrador1,&valor,registrador2);
+      fscanf(f," %s %d[^(]%s",registrador1,&valor,registrador2);
       registrador1[3]='\0';
       registrador2[3]='\0';
       Fprintf_registrador(registrador2,saida);
@@ -192,7 +192,7 @@ int main(int argc, char const *argv[]){
       printf("Operação LW chamada!\n");
       char aux[16];
       fprintf(saida, "100011");
-      fscanf(f," %s %d(%s",registrador1,&valor,registrador2);
+      fscanf(f," %s %d[^(]%s",registrador1,&valor,registrador2);
       registrador1[3]='\0';
       registrador2[3]='\0';
       Fprintf_registrador(registrador2,saida);
