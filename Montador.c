@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "Conversor.h"
 
 int main(int argc, char const *argv[]){
   FILE *f = NULL,*saida;
-  char nome_arquivo[20],operacao[4],registrador1[5],registrador2[5],registrador3[5];
+  char nome_arquivo[20],operacao[4],registrador1[5],registrador2[5],registrador3[5],binario[16];
   int valor;
   while(f == NULL){
     printf("\nDigite o nome do arquivo que deseja abrir:");
@@ -93,16 +94,19 @@ int main(int argc, char const *argv[]){
       printf("Registrador (%s)  (%s)  (%s)\n",registrador1,registrador2,registrador3);
     }
     else if(strcmp(operacao,"addi")==0){
+      char aux[16];
       printf("Operação ADDI chamada!\n");
       fprintf(saida, "001000");
       fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
       registrador2[3]='\0';
-      //fprintf(saida, "\n");
+      strcpy(aux,Or_Bits_finais(valor));
+      fprintf(saida,"%s\n",aux);
       printf("Registrador (%s)  (%s)  Valor (%d)\n",registrador1,registrador2,valor);
     }
     else if(strcmp(operacao,"andi")==0){
       printf("Operação ANDI chamada!\n");
+      fprintf(saida, "001100");
       fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
       registrador2[3]='\0';
@@ -110,19 +114,32 @@ int main(int argc, char const *argv[]){
     }
     else if(strcmp(operacao,"ori")==0){
       printf("Operação ORI chamada!\n");
-    }
-    else if(strcmp(operacao,"sll")==0){
-      printf("Operação SLL chamada!\n");
+      fprintf(saida, "001101");
       fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
       registrador2[3]='\0';
       printf("Registrador (%s)  (%s)  Valor (%d)\n",registrador1,registrador2,valor);
     }
-    else if(strcmp(operacao,"srl")==0){
-      printf("Operação SRL chamada!\n");
+    else if(strcmp(operacao,"sll")==0){
+      char aux[16];
+      printf("Operação SLL chamada!\n");
+      fprintf(saida, "000000");
       fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
       registrador2[3]='\0';
+      strcpy(aux,Or_Bits_finais(valor));
+      fprintf(saida,"%s\n",aux);
+      printf("Registrador (%s)  (%s)  Valor (%d)\n",registrador1,registrador2,valor);
+    }
+    else if(strcmp(operacao,"srl")==0){
+      char aux[16];
+      printf("Operação SRL chamada!\n");
+      fprintf(saida, "000000");
+      fscanf(f," %s %s %d",registrador1,registrador2,&valor);
+      registrador1[3]='\0';
+      registrador2[3]='\0';
+      strcpy(aux,Or_Bits_finais(valor));
+      fprintf(saida,"%s\n",aux);
       printf("Registrador (%s)  (%s)  Valor (%d)\n",registrador1,registrador2,valor);
     }
   }

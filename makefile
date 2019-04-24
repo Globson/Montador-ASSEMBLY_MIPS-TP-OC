@@ -1,5 +1,5 @@
-all: Montador.c
-	gcc Montador.c -o EXEC
+all: Montador.c Conversor.c
+	gcc Montador.c -o EXEC Conversor.c
 
 clear: EXEC
 	rm EXEC
