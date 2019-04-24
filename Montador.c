@@ -9,9 +9,9 @@ int main(int argc, char const *argv[]){
   int valor;
   while(f == NULL){
     printf("\nDigite o nome do arquivo que deseja abrir:");
-    scanf("%s",nome_arquivo);
-    f = fopen(nome_arquivo,"r");
-    ///f= fopen("entrada.asm","r");  //Retornar comandos acima comentados antes de entregar.
+    //scanf("%s",nome_arquivo);
+    //f = fopen(nome_arquivo,"r");
+    f= fopen("entrada.asm","r");  //Retornar comandos acima comentados antes de entregar.
   if(f == NULL){
     printf("\n\tErro!Nao foi possivel abrir arquivo!\n");}
   }
@@ -174,6 +174,46 @@ int main(int argc, char const *argv[]){
       fprintf(saida,"%s",aux);
       fprintf(saida, "000010\n");
       printf("Registradores (%s)  (%s)  Valor: (%d)\n",registrador1,registrador2,valor);
+    }
+    else if(strcmp(operacao,"sw")==0){
+      printf("Operação SW chamada!\n");
+      char aux[16];
+      fprintf(saida, "101011");
+      fscanf(f," %s %d(%s",registrador1,&valor,registrador2);
+      registrador1[3]='\0';
+      registrador2[3]='\0';
+      Fprintf_registrador(registrador2,saida);
+      Fprintf_registrador(registrador1,saida);
+      strcpy(aux,Or_Bits_finais(valor));
+      fprintf(saida,"%s\n",aux);
+      printf("Registradores (%s)  (%s)  Valor: (%d)\n",registrador1,registrador2,valor);
+    }
+    else if(strcmp(operacao,"lw")==0){
+      printf("Operação LW chamada!\n");
+      char aux[16];
+      fprintf(saida, "100011");
+      fscanf(f," %s %d(%s",registrador1,&valor,registrador2);
+      registrador1[3]='\0';
+      registrador2[3]='\0';
+      Fprintf_registrador(registrador2,saida);
+      Fprintf_registrador(registrador1,saida);
+      strcpy(aux,Or_Bits_finais(valor));
+      fprintf(saida,"%s\n",aux);
+      printf("Registradores (%s)  (%s)  Valor: (%d)\n",registrador1,registrador2,valor);
+    }
+    else if(strcmp(operacao,"move")==0){
+      fprintf(saida, "000000");
+      printf("Operação MOVE chamada!\n");
+      fscanf(f," %s %s",registrador1,registrador2);
+      registrador1[3]='\0';
+      registrador2[3]='\0';
+      strcpy(registrador3,"$ze");
+      registrador3[3]='\0';
+      Fprintf_registrador(registrador2,saida);
+      Fprintf_registrador(registrador3,saida);
+      Fprintf_registrador(registrador1,saida);
+      fprintf(saida, "00000100000\n");
+      printf("Registradores: (%s)  (%s)\n",registrador1,registrador2);
     }
   }
   fclose(f);
