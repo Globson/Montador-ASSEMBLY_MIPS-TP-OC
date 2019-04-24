@@ -28,7 +28,25 @@ int main(int argc, char const *argv[]){
       if(strcmp(registrador1,"$s0")==0){
         //fazer escrita para o reespectivo registrador.//
       }
-      if(strcmp(registrador1,"$s2")==0){
+      else if(strcmp(registrador1,"$s1")==0){
+        //fazer escrita para o reespectivo registrador.//
+      }
+      else if(strcmp(registrador1,"$s2")==0){
+        //fazer escrita para o reespectivo registrador.//
+      }
+      else if(strcmp(registrador1,"$s3")==0){
+        //fazer escrita para o reespectivo registrador.//
+      }
+      else if(strcmp(registrador1,"$s4")==0){
+        //fazer escrita para o reespectivo registrador.//
+      }
+      else if(strcmp(registrador1,"$s5")==0){
+        //fazer escrita para o reespectivo registrador.//
+      }
+      else if(strcmp(registrador1,"$s6")==0){
+        //fazer escrita para o reespectivo registrador.//
+      }
+      else if(strcmp(registrador1,"$s7")==0){
         //fazer escrita para o reespectivo registrador.//
       }
       printf("Registrador (%s)  (%s)  (%s)\n",registrador1,registrador2,registrador3);
