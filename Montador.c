@@ -100,7 +100,14 @@ int main(int argc, char const *argv[]){
       fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
       registrador2[3]='\0';
-      strcpy(aux,Or_Bits_finais(valor));
+      if(valor<0){
+        valor=valor*(-1);
+        strcpy(aux,Or_Bits_finais(valor));
+        strcpy(aux,Complemento2(aux));
+      }
+      else{
+        strcpy(aux,Or_Bits_finais(valor));
+      }
       fprintf(saida,"%s\n",aux);
       printf("Registrador (%s)  (%s)  Valor (%d)\n",registrador1,registrador2,valor);
     }
