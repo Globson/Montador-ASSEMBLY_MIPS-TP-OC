@@ -4,7 +4,7 @@
 
 int main(int argc, char const *argv[]){
   FILE *f = NULL,*saida;
-  char nome_arquivo[20],operacao[4],registrador1[4],registrador2[4],registrador3[4];
+  char nome_arquivo[20],operacao[4],registrador1[5],registrador2[5],registrador3[5];
   int valor;
   while(f == NULL){
     printf("\nDigite o nome do arquivo que deseja abrir:");
@@ -19,16 +19,23 @@ int main(int argc, char const *argv[]){
   while(!feof(f)){
     fscanf(f,"%s",operacao);
     if(strcmp(operacao,"add")==0){
+      fprintf(saida, "0000");
       printf("Operação ADD chamada!\n");
-      fscanf(f," %c%c%c, %c%c%c, %c%c%c",&registrador1[0],&registrador1[1],&registrador1[2],&registrador2[0],&registrador2[1],&registrador2[2],&registrador3[0],&registrador3[1],&registrador3[2]);
+      fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
       registrador2[3]='\0';
       registrador3[3]='\0';
+      if(strcmp(registrador1,"$s0")==0){
+        //fazer escrita para o reespectivo registrador.//
+      }
+      if(strcmp(registrador1,"$s2")==0){
+        //fazer escrita para o reespectivo registrador.//
+      }
       printf("Registrador (%s)  (%s)  (%s)\n",registrador1,registrador2,registrador3);
     }
     else if(strcmp(operacao,"sub")==0){
       printf("Operação SUB chamada!\n");
-      fscanf(f," %c%c%c, %c%c%c, %c%c%c",&registrador1[0],&registrador1[1],&registrador1[2],&registrador2[0],&registrador2[1],&registrador2[2],&registrador3[0],&registrador3[1],&registrador3[2]);
+      fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
       registrador2[3]='\0';
       registrador3[3]='\0';
@@ -36,7 +43,7 @@ int main(int argc, char const *argv[]){
     }
     else if(strcmp(operacao,"and")==0){
       printf("Operação AND chamada!\n");
-      fscanf(f," %c%c%c, %c%c%c, %c%c%c",&registrador1[0],&registrador1[1],&registrador1[2],&registrador2[0],&registrador2[1],&registrador2[2],&registrador3[0],&registrador3[1],&registrador3[2]);
+      fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
       registrador2[3]='\0';
       registrador3[3]='\0';
@@ -44,7 +51,7 @@ int main(int argc, char const *argv[]){
     }
     else if(strcmp(operacao,"or")==0){
       printf("Operação OR chamada!\n");
-      fscanf(f," %c%c%c, %c%c%c, %c%c%c",&registrador1[0],&registrador1[1],&registrador1[2],&registrador2[0],&registrador2[1],&registrador2[2],&registrador3[0],&registrador3[1],&registrador3[2]);
+      fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
       registrador2[3]='\0';
       registrador3[3]='\0';
@@ -52,7 +59,7 @@ int main(int argc, char const *argv[]){
     }
     else if(strcmp(operacao,"nor")==0){
       printf("Operação NOR chamada!\n");
-      fscanf(f," %c%c%c, %c%c%c, %c%c%c",&registrador1[0],&registrador1[1],&registrador1[2],&registrador2[0],&registrador2[1],&registrador2[2],&registrador3[0],&registrador3[1],&registrador3[2]);
+      fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
       registrador2[3]='\0';
       registrador3[3]='\0';
@@ -60,14 +67,14 @@ int main(int argc, char const *argv[]){
     }
     else if(strcmp(operacao,"addi")==0){
       printf("Operação ADDI chamada!\n");
-      fscanf(f," %c%c%c, %c%c%c, %d",&registrador1[0],&registrador1[1],&registrador1[2],&registrador2[0],&registrador2[1],&registrador2[2],&valor);
+      fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
       registrador2[3]='\0';
       printf("Registrador (%s)  (%s)  Valor (%d)\n",registrador1,registrador2,valor);
     }
     else if(strcmp(operacao,"andi")==0){
       printf("Operação ANDI chamada!\n");
-      fscanf(f," %c%c%c, %c%c%c, %d",&registrador1[0],&registrador1[1],&registrador1[2],&registrador2[0],&registrador2[1],&registrador2[2],&valor);
+      fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
       registrador2[3]='\0';
       printf("Registrador (%s)  (%s)  Valor (%d)\n",registrador1,registrador2,valor);
@@ -77,18 +84,20 @@ int main(int argc, char const *argv[]){
     }
     else if(strcmp(operacao,"sll")==0){
       printf("Operação SLL chamada!\n");
-      fscanf(f," %c%c%c, %c%c%c, %d",&registrador1[0],&registrador1[1],&registrador1[2],&registrador2[0],&registrador2[1],&registrador2[2],&valor);
+      fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
       registrador2[3]='\0';
       printf("Registrador (%s)  (%s)  Valor (%d)\n",registrador1,registrador2,valor);
     }
     else if(strcmp(operacao,"srl")==0){
       printf("Operação SRL chamada!\n");
-      fscanf(f," %c%c%c, %c%c%c, %d",&registrador1[0],&registrador1[1],&registrador1[2],&registrador2[0],&registrador2[1],&registrador2[2],&valor);
+      fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
       registrador2[3]='\0';
       printf("Registrador (%s)  (%s)  Valor (%d)\n",registrador1,registrador2,valor);
     }
   }
+  fclose(f);
+  fclose(saida);
   return 0;
 }
