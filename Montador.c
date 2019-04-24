@@ -19,7 +19,7 @@ int main(int argc, char const *argv[]){
   while(!feof(f)){
     fscanf(f,"%s",operacao);
     if(strcmp(operacao,"add")==0){
-      fprintf(saida, "0000");
+      fprintf(saida, "000000");
       printf("Operação ADD chamada!\n");
       fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
@@ -49,45 +49,56 @@ int main(int argc, char const *argv[]){
       else if(strcmp(registrador1,"$s7")==0){
         //fazer escrita para o reespectivo registrador.//
       }
+      fprintf(saida, "00000100000\n");
       printf("Registrador (%s)  (%s)  (%s)\n",registrador1,registrador2,registrador3);
     }
     else if(strcmp(operacao,"sub")==0){
       printf("Operação SUB chamada!\n");
+      fprintf(saida, "000000");
       fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
       registrador2[3]='\0';
       registrador3[3]='\0';
+      fprintf(saida, "00000100010\n");
       printf("Registrador (%s)  (%s)  (%s)\n",registrador1,registrador2,registrador3);
     }
     else if(strcmp(operacao,"and")==0){
       printf("Operação AND chamada!\n");
+      fprintf(saida, "000000");
       fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
       registrador2[3]='\0';
       registrador3[3]='\0';
+      fprintf(saida, "00000100100\n");
       printf("Registrador (%s)  (%s)  (%s)\n",registrador1,registrador2,registrador3);
     }
     else if(strcmp(operacao,"or")==0){
       printf("Operação OR chamada!\n");
+      fprintf(saida, "000000");
       fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
       registrador2[3]='\0';
       registrador3[3]='\0';
+      fprintf(saida, "00000100101\n");
       printf("Registrador (%s)  (%s)  (%s)\n",registrador1,registrador2,registrador3);
     }
     else if(strcmp(operacao,"nor")==0){
       printf("Operação NOR chamada!\n");
+      fprintf(saida, "000000");
       fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
       registrador2[3]='\0';
       registrador3[3]='\0';
+      fprintf(saida, "00000100111\n");
       printf("Registrador (%s)  (%s)  (%s)\n",registrador1,registrador2,registrador3);
     }
     else if(strcmp(operacao,"addi")==0){
       printf("Operação ADDI chamada!\n");
+      fprintf(saida, "001000");
       fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
       registrador2[3]='\0';
+      //fprintf(saida, "\n");
       printf("Registrador (%s)  (%s)  Valor (%d)\n",registrador1,registrador2,valor);
     }
     else if(strcmp(operacao,"andi")==0){
