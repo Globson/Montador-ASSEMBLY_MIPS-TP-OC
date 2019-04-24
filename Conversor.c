@@ -26,14 +26,6 @@ char* Or_Bits_finais(int i){
   strcpy(aux,dec2bin(i));
   //printf("%s\n",aux );
   x=strlen(dec2bin(i));
-  /*printf(" Antes da negação:%s\n",aux);
-  for(j=0;j<x;j++){
-    if(aux[j]=='0'){
-    aux[j]='1';}
-    else{
-      aux[j]='0';}
-  }
-  printf("Depois da negação:%s\n",aux);*/
   for(j=16-x;j<16;j++){
     Palavra[j] = aux[k];
     k++;

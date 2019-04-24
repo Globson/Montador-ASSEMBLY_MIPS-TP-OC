@@ -104,6 +104,7 @@ int main(int argc, char const *argv[]){
         valor=valor*(-1);
         strcpy(aux,Or_Bits_finais(valor));
         strcpy(aux,Complemento2(aux));
+        valor=valor*(-1);
       }
       else{
         strcpy(aux,Or_Bits_finais(valor));
