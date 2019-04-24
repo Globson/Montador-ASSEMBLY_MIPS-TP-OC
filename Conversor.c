@@ -99,3 +99,44 @@ char* Complemento2(char *Num){
   strcpy(soma,Somador_binario(Num,um));
   return aux;
 }
+
+void Fprintf_registrador(char* Reg, FILE* saida){
+  if(!strcmp(Reg,"$s0"))
+    fprintf(saida, "10000");
+  else if(!strcmp(Reg,"$s1"))
+    fprintf(saida, "10001");
+  else if(!strcmp(Reg,"$s2"))
+    fprintf(saida, "10010");
+  else if(!strcmp(Reg,"$s3"))
+    fprintf(saida, "10011");
+  else if(!strcmp(Reg,"$s4"))
+    fprintf(saida, "10100");
+  else if(!strcmp(Reg,"$s5"))
+    fprintf(saida, "10101");
+  else if(!strcmp(Reg,"$s6"))
+    fprintf(saida, "10110");
+  else if(!strcmp(Reg,"$s7"))
+    fprintf(saida, "10111");
+  else if(!strcmp(Reg,"$t0"))
+    fprintf(saida, "01000");
+  else if(!strcmp(Reg,"$t1"))
+    fprintf(saida, "01001");
+  else if(!strcmp(Reg,"$t2"))
+    fprintf(saida, "01010");
+  else if(!strcmp(Reg,"$t3"))
+    fprintf(saida, "01011");
+  else if(!strcmp(Reg,"$t4"))
+    fprintf(saida, "01100");
+  else if(!strcmp(Reg,"$t5"))
+    fprintf(saida, "01101");
+  else if(!strcmp(Reg,"$t6"))
+    fprintf(saida, "01110");
+  else if(!strcmp(Reg,"$t7"))
+    fprintf(saida, "01111");
+  else if(!strcmp(Reg,"$ze"))
+    fprintf(saida, "00000");
+
+
+
+
+}
