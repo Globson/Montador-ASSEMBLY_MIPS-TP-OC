@@ -1,11 +1,8 @@
-all: Montador.c Conversor.c
-	gcc Montador.c -o EXEC Conversor.c
+all: Montador.c Conversores.c
+	gcc Montador.c -o EXEC Conversores.c
 
 clear: EXEC
 	rm EXEC
 
 run: EXEC
 	./EXEC
-
-py: Montador.py
-	python3 Montador.py

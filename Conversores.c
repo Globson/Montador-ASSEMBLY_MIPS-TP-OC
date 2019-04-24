@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Conversor.h"
+#include "Conversores.h"
 #define swap( a, b )   do{ int tmp = a; a = b; b = tmp; }while(0)
 
 char* dec2bin(int d){
@@ -34,6 +34,22 @@ char* Or_Bits_finais(int i){
   //printf("%s\n",Palavra);
   return aux2;
 }
+char* Or_Bits_SLL_SRL(int i){
+  int k=0,j,x;
+  char Palavra[5] = "0000",aux[15];
+  char* aux2 = Palavra;
+  strcpy(aux,dec2bin(i));
+  //printf("%s\n",aux );
+  x=strlen(dec2bin(i));
+  for(j=5-x;j<5;j++){
+    Palavra[j] = aux[k];
+    k++;
+  }
+  Palavra[5]='\0';
+  //printf("%s\n",Palavra);
+  return aux2;
+}
+
 
 char* Somador_binario(char* num1,char* num2){
   char soma[16], erro;
@@ -78,7 +94,7 @@ char* Somador_binario(char* num1,char* num2){
   //soma[0] = vai_um + '0';
   //soma[tam1+1] = '\0';
   soma[tam1] = '\0';
-  printf("\n %s\n +\n %s\n =\n %s\n", num1, num2, soma);
+  //printf("\n %s\n +\n %s\n =\n %s\n", num1, num2, soma);
   return aux;
 }
 
@@ -87,15 +103,15 @@ char* Complemento2(char *Num){
   int x=strlen(Num),j;
   char um[2]="1",soma[16];
   char* aux = soma;
-  printf(" Antes da negação: %s\n",Num);
+  //printf(" Antes da negação: %s\n",Num);
   for(j=0;j<x;j++){
     if(Num[j]=='0'){
     Num[j]='1';}
     else{
       Num[j]='0';}
   }
-  printf("Depois da negação: %s\n",Num);
-  printf("Soma:\n");
+  //printf("Depois da negação: %s\n",Num);
+  //printf("Soma:\n");
   strcpy(soma,Somador_binario(Num,um));
   return aux;
 }
