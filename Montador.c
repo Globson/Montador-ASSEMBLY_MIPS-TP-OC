@@ -15,7 +15,7 @@ int main(int argc, char const *argv[]){
   if(f == NULL){
     printf("\n\tErro!Nao foi possivel abrir arquivo!\n");}
   } //Saida do while apenas quando arquivo de entrada for aberto com sucesso.//
-  saida = fopen("saida.txt","w");
+  saida = fopen("saida.txt","w"); //Abertura de arquivo de escrita.//
   printf("\n\tArquivo aberto com sucesso!\n");
   while(!feof(f)){
     fscanf(f,"%s",operacao); //Leitura do tipo de instrução.// Cada if a seguir descreve uma verificação quanto ao nome da operação de instrução.//
@@ -186,17 +186,18 @@ int main(int argc, char const *argv[]){
       printf("Registradores (%s)  (%s)  Valor: (%d)\n",registrador1,registrador2,valor);
       strcpy(operacao,"Rst"); //Resetando variavel operação.//
     }
+    //Funçoes a seguir sao de pontuação extra:
     else if(strcmp(operacao,"sw")==0){
       printf("Operação SW chamada!\n");
       char aux[16];
-      fprintf(saida, "101011");
-      fscanf(f," %s %d[^(]%s",registrador1,&valor,registrador2);
+      fprintf(saida, "101011");// Escrita inicial da instrução .//
+      fscanf(f," %s %d[^(]%s",registrador1,&valor,registrador2);//Leitura de registradores.//
       registrador1[3]='\0';
       registrador2[3]='\0';
-      Fprintf_registrador(registrador2,saida);
+      Fprintf_registrador(registrador2,saida);//Escrita em binario de registradores
       Fprintf_registrador(registrador1,saida);
-      strcpy(aux,Or_Bits_finais(valor));
-      fprintf(saida,"%s\n",aux);
+      strcpy(aux,Or_Bits_finais(valor));//Conversao do valor para binario.//
+      fprintf(saida,"%s\n",aux);//Escrita do valor em binario.//
       printf("Registradores (%s)  (%s)  Valor: (%d)\n",registrador1,registrador2,valor);
       strcpy(operacao,"Rst");
     }
@@ -220,7 +221,7 @@ int main(int argc, char const *argv[]){
       fscanf(f," %s %s",registrador1,registrador2);
       registrador1[3]='\0';
       registrador2[3]='\0';
-      strcpy(registrador3,"$ze");
+      strcpy(registrador3,"$ze"); //Função identica a instrução add porem se o registrador $zero.//
       registrador3[3]='\0';
       Fprintf_registrador(registrador2,saida);
       Fprintf_registrador(registrador3,saida);
@@ -274,7 +275,7 @@ int main(int argc, char const *argv[]){
       strcpy(operacao,"Rst");
     }
   }
-  fclose(f);
+  fclose(f);//Fechamento de arquivos.//
   fclose(saida);
   printf("\n\t-->Arquivo de saida('saida.txt') gerado com sucesso!<--\n");
   return 0;
