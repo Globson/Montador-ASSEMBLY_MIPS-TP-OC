@@ -4,7 +4,7 @@
 #include "Conversores.h"
 #define swap( a, b )   do{ int tmp = a; a = b; b = tmp; }while(0)
 
-char* dec2bin(int d){
+char* dec2bin(int d){ // Função para converter decimal para binario.//
     char bin[16];
     char *aux = bin;
     int i, j;
@@ -19,7 +19,7 @@ char* dec2bin(int d){
 
     return aux;
 }
-char* Or_Bits_finais(int i){
+char* Or_Bits_finais(int i){//Função criada para adicionar no fim da palavra de 16 bits obtido atravez do conversor para binario.//
   int k=0,j,x;
   char Palavra[16] = "000000000000000",aux[16];
   char* aux2 = Palavra;
@@ -34,7 +34,7 @@ char* Or_Bits_finais(int i){
   //printf("%s\n",Palavra);
   return aux2;
 }
-char* Or_Bits_SLL_SRL(int i){
+char* Or_Bits_SLL_SRL(int i){ //Função criada para adicionar no fim da palavra de 5 bits obtido atravez do conversor para binario.//
   int k=0,j,x;
   char Palavra[5] = "0000",aux[15];
   char* aux2 = Palavra;
@@ -51,7 +51,7 @@ char* Or_Bits_SLL_SRL(int i){
 }
 
 
-char* Somador_binario(char* num1,char* num2){
+char* Somador_binario(char* num1,char* num2){ //Função para somar 2 numeros em binario.//
   char soma[16], erro;
   char* aux = soma;
   int tam1, tam2, vai_um, i, j, x;
@@ -99,7 +99,7 @@ char* Somador_binario(char* num1,char* num2){
 }
 
 
-char* Complemento2(char *Num){
+char* Complemento2(char *Num){ //Função que transforma um numero em binario em um numero binario em um numero binario negativo.//
   int x=strlen(Num),j;
   char um[2]="1",soma[16];
   char* aux = soma;
@@ -116,7 +116,7 @@ char* Complemento2(char *Num){
   return aux;
 }
 
-void Fprintf_registrador(char* Reg, FILE* saida){
+void Fprintf_registrador(char* Reg, FILE* saida){ //Função criada para identificar o registrador passado por parametro e imediatamente escrever saida em linguagem de maquina em arquivo.//
   if(!strcmp(Reg,"$s0"))
     fprintf(saida, "10000");
   else if(!strcmp(Reg,"$s1"))
@@ -151,8 +151,4 @@ void Fprintf_registrador(char* Reg, FILE* saida){
     fprintf(saida, "01111");
   else if(!strcmp(Reg,"$ze"))
     fprintf(saida, "00000");
-
-
-
-
 }
