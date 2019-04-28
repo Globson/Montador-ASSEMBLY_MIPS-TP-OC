@@ -7,7 +7,6 @@ O algoritmo a seguir converte arquivos de entrada do tipo .asm em linguagem asse
 
 
 
-O algoritmo a seguir converte arquivos de entrada do tipo .asm em linguagem assembly para binarios de maquina.
 
 ## Instalação
 
