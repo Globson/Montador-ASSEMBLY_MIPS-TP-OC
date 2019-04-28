@@ -9,9 +9,9 @@ int main(int argc, char const *argv[]){
   int valor; //Variavel para fscanf.//
   while(f == NULL){
     printf("\nDigite o nome do arquivo que deseja abrir:");
-    //scanf("%s",nome_arquivo);
-    //f = fopen(nome_arquivo,"r");
-    f= fopen("entrada.asm","r");  //Retornar comandos acima comentados antes de entregar.
+    scanf("%s",nome_arquivo);
+    f = fopen(nome_arquivo,"r");
+    //f= fopen("entrada.asm","r");  //Retornar comandos acima comentados antes de entregar.
   if(f == NULL){
     printf("\n\tErro!Nao foi possivel abrir arquivo!\n");}
   } //Saida do while apenas quando arquivo de entrada for aberto com sucesso.//
