@@ -1,8 +1,8 @@
 all: Montador.c Conversores.c
-	gcc Montador.c -o EXEC Conversores.c
+	gcc Montador.c -o Montador Conversores.c
 
-clear: EXEC
-	rm EXEC
+clear: Montador
+	rm Montador
 
-run: EXEC
-	./EXEC
+run: Montador
+	./Montador
