@@ -20,7 +20,7 @@ int main(int argc, char const *argv[]){
     fscanf(f,"%s",operacao); //Leitura do tipo de instrução.// Cada if a seguir descreve uma verificação quanto ao nome da operação de instrução.//
     if(strcmp(operacao,"add")==0){
       fprintf(saida, "000000"); //Escrita em arquivo inicial da instrução corresponte.//
-      printf("Operação ADD chamada!\n");
+      printf("Instrucao ADD chamada!\n");
       fscanf(f," %s %s %s",registrador1,registrador2,registrador3); //Leitura dos registradores.//
       registrador1[3]='\0'; //Definindo apenas 3 primeiras posições como relevantes em cada string que armazena um registrador.//
       registrador2[3]='\0';
@@ -33,7 +33,7 @@ int main(int argc, char const *argv[]){
       strcpy(operacao,"Rst"); //Resetando variavel de operacao.//
     } //Processos semelhantes em leituras de outras instruções se repetem a seguir:
     else if(strcmp(operacao,"sub")==0){
-      printf("Operação SUB chamada!\n");
+      printf("Instrucao SUB chamada!\n");
       fprintf(saida, "000000");
       fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
@@ -47,7 +47,7 @@ int main(int argc, char const *argv[]){
       strcpy(operacao,"Rst");
     }
     else if(strcmp(operacao,"and")==0){
-      printf("Operação AND chamada!\n");
+      printf("Instrucao AND chamada!\n");
       fprintf(saida, "000000");
       fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
@@ -61,7 +61,7 @@ int main(int argc, char const *argv[]){
       strcpy(operacao,"Rst");
     }
     else if(strcmp(operacao,"or")==0){
-      printf("Operação OR chamada!\n");
+      printf("Instrucao OR chamada!\n");
       fprintf(saida, "000000");
       fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
@@ -75,7 +75,7 @@ int main(int argc, char const *argv[]){
       strcpy(operacao,"Rst");
     }
     else if(strcmp(operacao,"nor")==0){
-      printf("Operação NOR chamada!\n");
+      printf("Instrucao NOR chamada!\n");
       fprintf(saida, "000000");
       fscanf(f," %s %s %s",registrador1,registrador2,registrador3);
       registrador1[3]='\0';
@@ -90,7 +90,7 @@ int main(int argc, char const *argv[]){
     }
     else if(strcmp(operacao,"addi")==0){
       char aux[16]; //Variavel auxiliar para print.//
-      printf("Operação ADDI chamada!\n");
+      printf("Instrucao ADDI chamada!\n");
       fprintf(saida, "001000"); //Escrita inicial em arquivo corresponte a instrução reespectiva.//
       fscanf(f," %s %s %d",registrador1,registrador2,&valor); //Leitura de registradores e valores.//
       registrador1[3]='\0';
@@ -112,7 +112,7 @@ int main(int argc, char const *argv[]){
     }//Processos semelhantes em leituras de outras instruções se repetem a seguir:
     else if(strcmp(operacao,"andi")==0){
       char aux[16];
-      printf("Operação ANDI chamada!\n");
+      printf("Instrucao ANDI chamada!\n");
       fprintf(saida, "001100");
       fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
@@ -135,7 +135,7 @@ int main(int argc, char const *argv[]){
     else if(strcmp(operacao,"ori")==0){
 
       char aux[16];
-      printf("Operação ORI chamada!\n");
+      printf("Instrucao ORI chamada!\n");
       fprintf(saida, "001101");
       fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
@@ -157,7 +157,7 @@ int main(int argc, char const *argv[]){
     }
     else if(strcmp(operacao,"sll")==0){
       char aux[16]; //Variavel auxiliar de print.//
-      printf("Operação SLL chamada!\n");
+      printf("Instrucao SLL chamada!\n");
       fprintf(saida, "00000000000");//Escrita inicial da operação corresponte.//
       fscanf(f," %s %s %d",registrador1,registrador2,&valor); //Lendo registradores.//
       registrador1[3]='\0'; //Definindo as 3 primeiras posições de variavel registrador como relevantes.//
@@ -172,7 +172,7 @@ int main(int argc, char const *argv[]){
     }
     else if(strcmp(operacao,"srl")==0){
       char aux[16];//Variavel auxiliar de print.//
-      printf("Operação SRL chamada!\n");
+      printf("Instrucao SRL chamada!\n");
       fprintf(saida, "00000000000");//Escrita inicial da operação corresponte.//
       fscanf(f," %s %s %d",registrador1,registrador2,&valor); //Lendo registradores.//
       registrador1[3]='\0';
@@ -187,7 +187,7 @@ int main(int argc, char const *argv[]){
     }
     //Funçoes a seguir sao de pontuação extra:
     else if(strcmp(operacao,"sw")==0){
-      printf("Operação SW chamada!\n");
+      printf("Instrucao SW chamada!\n");
       char aux[16];
       fprintf(saida, "101011");// Escrita inicial da instrução .//
       fscanf(f," %s %d[^(]%s",registrador1,&valor,registrador2);//Leitura de registradores.//
@@ -201,7 +201,7 @@ int main(int argc, char const *argv[]){
       strcpy(operacao,"Rst");
     }
     else if(strcmp(operacao,"lw")==0){
-      printf("Operação LW chamada!\n");
+      printf("Instrucao LW chamada!\n");
       char aux[16];
       fprintf(saida, "100011");
       fscanf(f," %s %d[^(]%s",registrador1,&valor,registrador2);
@@ -216,7 +216,7 @@ int main(int argc, char const *argv[]){
     }
     else if(strcmp(operacao,"move")==0){
       fprintf(saida, "000000");
-      printf("Operação MOVE chamada!\n");
+      printf("Instrucao MOVE chamada!\n");
       fscanf(f," %s %s",registrador1,registrador2);
       registrador1[3]='\0';
       registrador2[3]='\0';
@@ -232,7 +232,7 @@ int main(int argc, char const *argv[]){
     else if(strcmp(operacao,"bne")==0){
       char aux[16];
       fprintf(saida, "000101");
-      printf("Operação BNE chamada!\n");
+      printf("Instrucao BNE chamada!\n");
       fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
       registrador2[3]='\0';
@@ -254,7 +254,7 @@ int main(int argc, char const *argv[]){
     else if(strcmp(operacao,"beq")==0){
       char aux[16];
       fprintf(saida, "000100");
-      printf("Operação BEQ chamada!\n");
+      printf("Instrucao BEQ chamada!\n");
       fscanf(f," %s %s %d",registrador1,registrador2,&valor);
       registrador1[3]='\0';
       registrador2[3]='\0';
